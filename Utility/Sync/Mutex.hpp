@@ -30,6 +30,7 @@ public:
     }
     ~MutexLock()
     {
+        
         pthread_mutex_destroy(&mutex);
     }
     
@@ -50,7 +51,12 @@ private:
 class MutexLockGuard
 {
 public:
-    MutexLockGuard(MutexLock &mutex):mutex(mutex)
+    MutexLock(const MutexLock&)=delete;
+    MutexLock& operator=(const MutexLock&)=delete;
+    MutexLock(MutexLock&&)=delete;
+    MutexLock& operator=(MutexLock&&)=delete;
+    
+    explicit MutexLockGuard(MutexLock &mutex):mutex(mutex)
     {
         mutex.lock();
     }
