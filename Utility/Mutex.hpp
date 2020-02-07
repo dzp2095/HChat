@@ -6,11 +6,13 @@
 //  Copyright © 2020 邓志鹏. All rights reserved.
 //
 
+//Just for fun
+//This project dosen't use it
+
 #ifndef HCHAT_MUTEX_HPP
 #define HCHAT_MUTEX_HPP
 
 #include "Noncopyable.hpp"
-
 #include <stdio.h>
 #include <pthread.h>
 #include <assert.h>
