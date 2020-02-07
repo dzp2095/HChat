@@ -8,6 +8,11 @@
 
 #include <iostream>
 #include "unistd.h"
+#include "Utility/Mutex.hpp"
+#include "Noncopyable.hpp"
+#include "Utility/Singleton.hpp"
+#include "Copyable.hpp"
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << getppid();

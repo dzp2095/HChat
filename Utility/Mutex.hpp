@@ -9,6 +9,8 @@
 #ifndef HCHAT_MUTEX_HPP
 #define HCHAT_MUTEX_HPP
 
+#include "Noncopyable.hpp"
+
 #include <stdio.h>
 #include <pthread.h>
 #include <assert.h>
@@ -16,21 +18,15 @@
 namespace HChat
 {
 
-class MutexLock
+class MutexLock:public Noncopyable<MutexLock>
 {
-public:
-    MutexLock(const MutexLock&)=delete;
-    MutexLock& operator=(const MutexLock&)=delete;
-    MutexLock(MutexLock&&)=delete;
-    MutexLock& operator=(MutexLock&&)=delete;
-    
+public:    
     MutexLock()
     {
         pthread_mutex_init(&mutex, nullptr);
     }
     ~MutexLock()
     {
-        
         pthread_mutex_destroy(&mutex);
     }
     
@@ -48,14 +44,9 @@ private:
     pthread_mutex_t mutex;
 };
 
-class MutexLockGuard
+class MutexLockGuard:public Noncopyable<MutexLockGuard>
 {
 public:
-    MutexLock(const MutexLock&)=delete;
-    MutexLock& operator=(const MutexLock&)=delete;
-    MutexLock(MutexLock&&)=delete;
-    MutexLock& operator=(MutexLock&&)=delete;
-    
     explicit MutexLockGuard(MutexLock &mutex):mutex(mutex)
     {
         mutex.lock();
