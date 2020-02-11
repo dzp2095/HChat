@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "Noncopyable.hpp"
 #include <mutex>
+
 namespace HChat
 {
 

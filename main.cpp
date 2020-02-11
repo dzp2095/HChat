@@ -13,9 +13,9 @@
 #include "Utility/Singleton.hpp"
 #include "Copyable.hpp"
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << getppid();
-    
-    return 0;
-}
+//int main(int argc, const char * argv[]) {
+//    // insert code here...
+//    std::cout << getppid();
+//
+//    return 0;
+//}
