@@ -7,7 +7,7 @@
 //
 
 #include "Logging.hpp"
-#include <fmt/format.h>
+#include "fmt/format.h"
 #include <time.h>
 #include <sys/time.h>
 #include <thread>
@@ -31,11 +31,11 @@ void defaultFlush()
 Logger::OutputFunc g_output = defaultOutput;
 Logger::FlushFunc g_flush = defaultFlush;
 
-Logger::Logger(const char* filename,int line):
-    impl(filename, line)
-{
-    
+Logger::Logger(const char* filename,int line)
+    :impl(filename,line){
+
 }
+
 Logger::~Logger()
 {
     impl.stream << " -- " << impl.basename<<" : "<<impl.line<<"\n";

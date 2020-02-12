@@ -9,11 +9,11 @@
 #ifndef LogStream_hpp
 #define LogStream_hpp
 
-#include <stdio.h>
+#include <cstdio>
 
 #include "Noncopyable.hpp"
 #include "FixedSizeBuffer.hpp"
-#include <fmt/format.h>
+#include "fmt/format.h"
 
 namespace HChat{
 
@@ -22,7 +22,7 @@ class LogStream:Noncopyable<LogStream>{
 public:
     using Buffer = detail::FixedSizeBuffer<detail::kSmallBuffer>;
 
-    LogStream(){};
+    LogStream()= default;
     ~LogStream()=default;
     
     LogStream& operator<<(const unsigned char* str) {

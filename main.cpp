@@ -8,14 +8,12 @@
 
 #include <iostream>
 #include "unistd.h"
-#include "Utility/Mutex.hpp"
-#include "Noncopyable.hpp"
-#include "Utility/Singleton.hpp"
-#include "Copyable.hpp"
+#include "Logging.hpp"
 
-//int main(int argc, const char * argv[]) {
-//    // insert code here...
-//    std::cout << getppid();
-//
-//    return 0;
-//}
+using namespace HChat;
+int main(int argc, const char * argv[]) {
+    // insert code here...
+    std::cout << getppid();
+    HChat::LOG<<1;
+    return 0;
+}

@@ -10,7 +10,7 @@
 #define Logging_hpp
 
 
-#include <stdio.h>
+#include <cstdio>
 #include <string>
 #include "LogStream.hpp"
 
