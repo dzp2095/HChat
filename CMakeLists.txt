@@ -8,6 +8,7 @@ set(
         SOURCE_FILES
         Utility/Logging.cpp
         Utility/CountDownLatch.cpp
+        Utility/AsnyLogger.cpp
         main.cpp
 )
 add_executable(HChat ${SOURCE_FILES} )

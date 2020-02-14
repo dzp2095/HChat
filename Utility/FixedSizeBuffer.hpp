@@ -35,7 +35,9 @@ public:
     const char* current(){return cur;}
     
     void reset(){cur=buffer;}
-    
+
+    void setzero() { memset(buffer, 0, sizeof buffer); }
+
     void append(const char* buf, size_t len)
     {
         if (avail() > len)
@@ -47,7 +49,7 @@ public:
     }
 private:
     const char * end() const{return buffer+sizeof buffer;};
-    char buffer[SIZE];
+    char buffer[SIZE]{};
     char *cur;
 };
 

@@ -9,7 +9,6 @@
 #ifndef CountDownLatch_hpp
 #define CountDownLatch_hpp
 
-#include <stdio.h>
 #include "Noncopyable.hpp"
 #include <mutex>
 
@@ -32,7 +31,7 @@ private:
     
 mutable std::mutex mutex_;
 std::condition_variable condition_;
-unsigned int count_;
+int count_;
 };
 
 }

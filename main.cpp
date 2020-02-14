@@ -9,11 +9,12 @@
 #include <iostream>
 #include "unistd.h"
 #include "Logging.hpp"
-
+#include <thread>
+#include "AsnyLogger.hpp"
 using namespace HChat;
+using namespace std;
 int main(int argc, const char * argv[]) {
     // insert code here...
-    std::cout << getppid();
-    HChat::LOG<<1;
+    cout<<thread::hardware_concurrency();
     return 0;
 }

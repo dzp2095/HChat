@@ -27,7 +27,8 @@ public:
         static T value;
         return value;
     }
-private:
+
+protected:
     Singleton() = default;
     ~Singleton() = default;
 };

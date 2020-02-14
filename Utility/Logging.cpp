@@ -8,7 +8,7 @@
 
 #include "Logging.hpp"
 #include "fmt/format.h"
-#include <time.h>
+#include <ctime>
 #include <sys/time.h>
 #include <thread>
 
@@ -56,7 +56,7 @@ void Logger::Impl::formatTime()
     struct timeval tv;
     time_t time;
     char str_t[26] = {0};
-    gettimeofday (&tv, NULL);
+    gettimeofday (&tv, nullptr);
     time = tv.tv_sec;
     struct tm* p_time = localtime(&time);
     strftime(str_t, 26, "%Y-%m-%d %H:%M:%S\t", p_time);
