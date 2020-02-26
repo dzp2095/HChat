@@ -11,10 +11,21 @@
 #include "Logging.hpp"
 #include <thread>
 #include "AsnyLogger.hpp"
+#include "ThreadPool.h"
+
 using namespace HChat;
 using namespace std;
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    cout<<thread::hardware_concurrency();
-    return 0;
+    vector<future<int>> res(10);
+
+    ThreadPool pool(9);
+    for (int i=0;i<=10;i++){
+
+        res.emplace_back(
+                pool.submit([i]{
+                    cout<<"Hello, World by "<<i<<endl;
+                    return i*i;
+                }));
+
+    }
 }

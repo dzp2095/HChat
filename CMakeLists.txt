@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(.)
+project(HChat)
 
 set(CMAKE_CXX_STANDARD 17)
 include_directories(${CMAKE_SOURCE_DIR}/Utility)
@@ -10,7 +10,6 @@ set(
         Utility/CountDownLatch.cpp
         Utility/AsnyLogger.cpp
         main.cpp
-        Utility/ThreadPool.cpp
         Utility/ThreadPool.h
 )
 
@@ -27,3 +26,5 @@ add_definitions(-std=c++17)
 add_subdirectory(include/fmt EXCLUDE_FROM_ALL)
 
 target_link_libraries(HChat PRIVATE fmt::fmt-header-only)
+
+add_executable(ThreadPool  Utility/tests/ThreadPool.cpp)
