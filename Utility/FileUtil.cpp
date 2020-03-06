@@ -1,10 +1,9 @@
-// @Author Lin Ya
-// @Email xxbbb@vip.qq.com
+
 #include "FileUtil.h"
 #include <assert.h>
 #include <errno.h>
 #include <fcntl.h>
-#include <stdio.h>
+#include <cstdio>
 #include <sys/stat.h>
 #include <unistd.h>
 

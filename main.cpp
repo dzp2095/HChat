@@ -12,20 +12,11 @@
 #include <thread>
 #include "AsnyLogger.hpp"
 #include "ThreadPool.h"
+#include "Logging.hpp"
 
 using namespace HChat;
 using namespace std;
 int main(int argc, const char * argv[]) {
-    vector<future<int>> res(10);
 
-    ThreadPool pool(9);
-    for (int i=0;i<=10;i++){
 
-        res.emplace_back(
-                pool.submit([i]{
-                    cout<<"Hello, World by "<<i<<endl;
-                    return i*i;
-                }));
-
-    }
 }

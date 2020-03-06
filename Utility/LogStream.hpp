@@ -14,6 +14,7 @@
 #include "Noncopyable.hpp"
 #include "FixedSizeBuffer.hpp"
 #include "fmt/format.h"
+#include <thread>
 
 namespace HChat{
 
@@ -97,12 +98,14 @@ public:
         return operator<<(fmt::format("{:-f}", n).c_str());
     }
     
-    LogStream& operator<<(char v)
-    {
+    LogStream& operator<<(char v){
       buffer.append(&v, 1);
       return *this;
     }
-    
+    LogStream&operator<<(std::thread::id thread_id){
+        return operator<<(std::hash<std::thread::id>{}(std::this_thread::get_id()));
+    }
+
     const Buffer& get_buffer() const { return buffer; }
     void resetBuffer() { buffer.reset(); }
 
